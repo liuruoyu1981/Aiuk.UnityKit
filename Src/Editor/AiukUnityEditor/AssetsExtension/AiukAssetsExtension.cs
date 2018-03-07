@@ -21,6 +21,7 @@ namespace DeadMosquito.Revealer
         private static Texture2D _darkSkinTex;
         private static Texture2D _lightSkinTex;
         private static Texture2D _lightRefreshTex;
+        private static Texture2D _lightMenuTex;
         private static readonly float IconSize = EditorGUIUtility.singleLineHeight;
         private static readonly Dictionary<string, IAiukEditorAssetsFuction> AssetsFunctions
         = new Dictionary<string, IAiukEditorAssetsFuction>();
@@ -63,12 +64,14 @@ namespace DeadMosquito.Revealer
                 ("Assets/Aiuk.UnityKit/Src/Editor/AiukUnityEditor/AssetsExtension/Asset/reveal-dark.png");
             _lightRefreshTex = AssetDatabase.LoadAssetAtPath<Texture2D>
                 ("Assets/Aiuk.UnityKit/Src/Editor/AiukUnityEditor/AssetsExtension/Asset/refresh_light.png");
+            _lightMenuTex = AssetDatabase.LoadAssetAtPath<Texture2D>
+           ("Assets/Aiuk.UnityKit/Src/Editor/AiukUnityEditor/AssetsExtension/Asset/menu_light.png");
         }
 
         private static void HandleProjectWindowItemOnGUI(string guid, Rect rect)
         {
             AddRefreshIcon(guid, rect);
-            AddRefresh2Icon(guid, rect);
+            AddMenuIcon(guid, rect);
             AddOpenFolder(guid, rect);
             EditorApplication.RepaintProjectWindow();
         }
@@ -101,35 +104,36 @@ namespace DeadMosquito.Revealer
         private static void AddRefreshIcon(string guid, Rect rect)
         {
             var path = AssetDatabase.GUIDToAssetPath(guid);
-            var iconRect = new Rect(rect.width + rect.x - IconSize - 225, rect.y,
+            var iconRect = new Rect(rect.width + rect.x - IconSize - 31, rect.y,
                 IconSize - Offset, IconSize - Offset);
 
             if (!path.EndsWith("Aiuk.UnityKit")) return;
 
-            GUI.DrawTexture(iconRect, _lightRefreshTex);
-            if (!GUI.Button(iconRect, GUIContent.none, GUIStyle.none)) return;
-
-            var menu = new GenericMenu();
-
-            foreach (var kv in AssetsFunctions)
-            {
-                menu.AddItem(new GUIContent(kv.Value.MenuTitle), false, Callback,
-                    kv.Value.MenuTitle);
-            }
-            menu.ShowAsContext();
+            //GUI.DrawTexture(iconRect, _lightRefreshTex);
+            var content = new GUIContent(_lightRefreshTex, "调用所有重建任务");
+            if (!GUI.Button(iconRect, content, GUIStyle.none)) return;
         }
 
-        private static void AddRefresh2Icon(string guid, Rect rect)
+        private static void AddMenuIcon(string guid, Rect rect)
         {
             var path = AssetDatabase.GUIDToAssetPath(guid);
-            var iconRect = new Rect(rect.width + rect.x - IconSize - 208, rect.y,
+            var iconRect = new Rect(rect.width + rect.x - IconSize - 15, rect.y,
                 IconSize - Offset, IconSize - Offset);
 
             if (!path.EndsWith("Aiuk.UnityKit")) return;
 
-            GUI.DrawTexture(iconRect, _lightRefreshTex);
-            if (GUI.Button(iconRect, GUIContent.none, GUIStyle.none))
+            //GUI.DrawTexture(iconRect, _lightMenuTex);
+            var content = new GUIContent(_lightMenuTex, "呼出所有菜单");
+            if (GUI.Button(iconRect, content, GUIStyle.none))
             {
+                var menu = new GenericMenu();
+
+                foreach (var kv in AssetsFunctions)
+                {
+                    menu.AddItem(new GUIContent(kv.Value.MenuTitle), false, Callback,
+                        kv.Value.MenuTitle);
+                }
+                menu.ShowAsContext();
             }
         }
 
@@ -154,6 +158,5 @@ namespace DeadMosquito.Revealer
         {
             return Selection.assetGUIDs.Any(guid.Contains);
         }
-
     }
 }
