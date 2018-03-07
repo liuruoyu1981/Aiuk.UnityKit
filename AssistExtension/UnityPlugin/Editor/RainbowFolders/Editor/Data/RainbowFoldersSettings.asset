@@ -1,0 +1,674 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d342d38ae103540966b0e54b202c36, type: 3}
+  m_Name: RainbowFoldersSettings
+  m_EditorClassIdentifier: 
+  Folders:
+  - Type: 0
+    Key: Audio
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 4372cfb8a7d3b5b4d9b899147b193270, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 65e13c9890ffa26478506eda78683d5c, type: 3}
+  - Type: 0
+    Key: Editor
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ec2951dbd8c22234c8fdf92529d860fd, type: 3}
+    LargeIcon: {fileID: 2800000, guid: ad4412933c34d994a9a6daafb8202f4a, type: 3}
+  - Type: 0
+    Key: Data
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 97efd597cd18c564aadb45280476b23a, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 650a564eae901434e86dcb456fcc046a, type: 3}
+  - Type: 0
+    Key: Extensions
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 0a498e8f7fbcbef4db91d2d411e3f70f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: b88339035f924f94eab1e64bac79149f, type: 3}
+  - Type: 0
+    Key: Fonts
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 163b4b589845fee47ac105cdfb911b77, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 87a78956e37a460439f1871712ce87fc, type: 3}
+  - Type: 0
+    Key: Icons
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 27bb0c12d809b1e4fb2851723d50cde6, type: 3}
+    LargeIcon: {fileID: 2800000, guid: f61940b61bdca1843bed2dbc93de9038, type: 3}
+  - Type: 0
+    Key: Materials
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 0508340b76cfbdd43826ca620f578abd, type: 3}
+    LargeIcon: {fileID: 2800000, guid: a4decc2460e61e44b9ccd3d2d248738b, type: 3}
+  - Type: 0
+    Key: Meshes
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 268edea26d8cd504da659cc71a1d8549, type: 3}
+    LargeIcon: {fileID: 2800000, guid: e69e4447e8078c441b3a955855f4f080, type: 3}
+  - Type: 0
+    Key: Prefabs
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 483d693b3f9d5704b89409016b40bc74, type: 3}
+    LargeIcon: {fileID: 2800000, guid: fac7470563f79024ebc244b39080448d, type: 3}
+  - Type: 0
+    Key: RainbowFolders
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8d50cf779e5b4f54a831bdefc32b044c, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 5c32cf9ad519d0c4aacb16805c45eab3, type: 3}
+  - Type: 0
+    Key: Scenes
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 40ff06f7c381dcf4391ca8342d04260c, type: 3}
+    LargeIcon: {fileID: 2800000, guid: f9d86cd8e960f584a9aa5a8ee61c4115, type: 3}
+  - Type: 0
+    Key: Scripts
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 0
+    Key: Shaders
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 015a543b4163bfa498964b0db1004815, type: 3}
+    LargeIcon: {fileID: 2800000, guid: fe053ca6ee802d5478277554f1b356d5, type: 3}
+  - Type: 0
+    Key: Terrains
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: c75be7d9cde129149bb04f51d452d85a, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 4716b9cfe49343c499142d04bb004e0b, type: 3}
+  - Type: 0
+    Key: Textures
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 27bb0c12d809b1e4fb2851723d50cde6, type: 3}
+    LargeIcon: {fileID: 2800000, guid: f61940b61bdca1843bed2dbc93de9038, type: 3}
+  - Type: 0
+    Key: Android
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 6858fce162a9b4744baedb1357e0b690, type: 3}
+    LargeIcon: {fileID: 2800000, guid: c1e5c2a549b1b8048a04987738bb9c52, type: 3}
+  - Type: 0
+    Key: iOS
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 25e93be6802c63c408e62e4bdfa4e91f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 6888916ad986e2944a731fd320e5f566, type: 3}
+  - Type: 0
+    Key: Windows
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 277aff0709e51d2418b61f0c82cb277f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: c34025bbb220b844a8e633a414c63632, type: 3}
+  - Type: 0
+    Key: Mac
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 54a92a89ce169714a9a00aebb271cdd6, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 80ea8e29a9c225e4291234d6ba25a868, type: 3}
+  - Type: 0
+    Key: WebGL
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: b8e8a328d6527a14783473666c1f8a08, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 010e6d817952d434197d318f48b2f16a, type: 3}
+  - Type: 1
+    Key: Assets/Iuker.UnityKit
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8d50cf779e5b4f54a831bdefc32b044c, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 5c32cf9ad519d0c4aacb16805c45eab3, type: 3}
+  - Type: 1
+    Key: Assets/Definitto
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Iuker.UnityKit/FavoriteExtensions
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Standard Assets/FavoriteExtensions
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Eye
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: f3e2d724e55ac464bab917fb41e5f3a5, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 2c15a1b0d7c0f7e4a96a4c07104da9db, type: 3}
+  - Type: 1
+    Key: Assets/RyPoker
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: a65c70fcbe9ac0b4fbcbac4a0b67e64f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 3d8f946e891cc8f4e81b1a296f8fb6be, type: 3}
+  - Type: 1
+    Key: Assets/RyTk
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: bd871a1c68938b848adc74c50bb04a4d, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 980ffdf13df9e86469913858907674fd, type: 3}
+  - Type: 1
+    Key: Assets/Iuker.UnityKit/Iuker.UnityKit.Run
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Iuker.UnityKit/Iuker.UnityKit.Editor.Common
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Iuker.UnityKit/Iuker.Common
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Iuker.UnityKit/Iuker.UnityKit.EditorPlugins
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Iuker.UnityKit/Iuker.UnityKit.Editor.Console
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Iuker.UnityKit/ThirdModule
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Iuker.UnityKit/Iuker.UnityKit.ThirdModule_Xlua
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Iuker.UnityKit/UnityProjectTemplate
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 0a498e8f7fbcbef4db91d2d411e3f70f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: b88339035f924f94eab1e64bac79149f, type: 3}
+  - Type: 1
+    Key: Assets/Plugins
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Resources
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 97efd597cd18c564aadb45280476b23a, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 650a564eae901434e86dcb456fcc046a, type: 3}
+  - Type: 1
+    Key: Assets/Gizmos
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 483d693b3f9d5704b89409016b40bc74, type: 3}
+    LargeIcon: {fileID: 2800000, guid: fac7470563f79024ebc244b39080448d, type: 3}
+  - Type: 1
+    Key: Assets/Editor Default Resources
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 97efd597cd18c564aadb45280476b23a, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 650a564eae901434e86dcb456fcc046a, type: 3}
+  - Type: 1
+    Key: Assets/CSharp vNext Support
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/ShareSDKiOSAutoPackage
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: e4d497fd8f72b5241b762a7ed649ee83, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 0532ea3a1890c8946b6d842beeab51b8, type: 3}
+  - Type: 1
+    Key: Assets/Standard Assets
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 0a498e8f7fbcbef4db91d2d411e3f70f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: b88339035f924f94eab1e64bac79149f, type: 3}
+  - Type: 1
+    Key: Assets/StreamingAssets
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 97efd597cd18c564aadb45280476b23a, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 650a564eae901434e86dcb456fcc046a, type: 3}
+  - Type: 1
+    Key: Assets/WebPlayerTemplates
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 97efd597cd18c564aadb45280476b23a, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 650a564eae901434e86dcb456fcc046a, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit/Iuker.UnityKit.Run
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit/Iuker.UnityKit.Editor.Common
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit/Iuker.Common
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit/Iuker.UnityKit.ThirdModule_Xlua
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit/Iuker.UnityKit.EditorPlugins
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit/Iuker.UnityKit.Editor.Console
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit/Tools
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 97efd597cd18c564aadb45280476b23a, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 650a564eae901434e86dcb456fcc046a, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit/UnityProjectTemplate
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 97efd597cd18c564aadb45280476b23a, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 650a564eae901434e86dcb456fcc046a, type: 3}
+  - Type: 1
+    Key: Assets/WebPlayerTemplates/__Iuker.UnityKit.DllOutPut/Run/Iuker.UnityKit.Run
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/WebPlayerTemplates/__Iuker.UnityKit.DllOutPut/Editor/Iuker.UnityKit.Editor.CommonPlugins
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ec2951dbd8c22234c8fdf92529d860fd, type: 3}
+    LargeIcon: {fileID: 2800000, guid: ad4412933c34d994a9a6daafb8202f4a, type: 3}
+  - Type: 1
+    Key: Assets/WebPlayerTemplates/__Iuker.UnityKit.DllOutPut/Editor/Iuker.UnityKit.Editor.Console
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ec2951dbd8c22234c8fdf92529d860fd, type: 3}
+    LargeIcon: {fileID: 2800000, guid: ad4412933c34d994a9a6daafb8202f4a, type: 3}
+  - Type: 1
+    Key: Assets/WebPlayerTemplates/__Iuker.UnityKit.DllOutPut/Editor/Iuker.UnityKit.Editor.Common
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ec2951dbd8c22234c8fdf92529d860fd, type: 3}
+    LargeIcon: {fileID: 2800000, guid: ad4412933c34d994a9a6daafb8202f4a, type: 3}
+  - Type: 1
+    Key: Assets/WebPlayerTemplates/__Iuker.UnityKit.DllOutPut/Run/Iuker.UnityKit.Common
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/WebPlayerTemplates/__Iuker.UnityKit.DllOutPut/Run
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit/EditorDll
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 97efd597cd18c564aadb45280476b23a, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 650a564eae901434e86dcb456fcc046a, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit/Iuker.UnityKit.Editor.CommonPlugins
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit/protobuf-net
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit/Iuker.BaseProtobufMessage
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit/Iuker.UnityKit.Editor.VisualCode
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit/Iuker.UnityKit.Editor.IDE
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit/FavoriteExtensions
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit/Plugins
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit/CSharp70Support
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/__Iuker.UnityKit/IukerRepository
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/1_Iuker.UnityKit
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: b8e8a328d6527a14783473666c1f8a08, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 010e6d817952d434197d318f48b2f16a, type: 3}
+  - Type: 1
+    Key: Assets/AiukApps
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: a65c70fcbe9ac0b4fbcbac4a0b67e64f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 3d8f946e891cc8f4e81b1a296f8fb6be, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Example
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 40ff06f7c381dcf4391ca8342d04260c, type: 3}
+    LargeIcon: {fileID: 2800000, guid: f9d86cd8e960f584a9aa5a8ee61c4115, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Integration
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Src
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Example/Project
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 0b7e8970cd9b4d548883dc5b4f4997c0, type: 3}
+    LargeIcon: {fileID: 2800000, guid: ca744735eea12d84b8369b456104295c, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/AiukCode
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Integration/UnityPlugin
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Integration/Library
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Src/AiukCode
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Src/AiukCode/AiukUnity
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Src/AiukCode/AiukCommon
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Src/AiukCode/AiukTest
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8d50cf779e5b4f54a831bdefc32b044c, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 5c32cf9ad519d0c4aacb16805c45eab3, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Src/UGUI
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Src/AiukUnity
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Src/AiukCommon
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Src/AiukTest
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Src/AiukUnity/UITemplate
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 483d693b3f9d5704b89409016b40bc74, type: 3}
+    LargeIcon: {fileID: 2800000, guid: fac7470563f79024ebc244b39080448d, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Src/AiukUnity/Runtime
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Src/AiukUnity/UITemplate/BaseControl
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 483d693b3f9d5704b89409016b40bc74, type: 3}
+    LargeIcon: {fileID: 2800000, guid: fac7470563f79024ebc244b39080448d, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Src/AiukUnity/UITemplate/Example
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 483d693b3f9d5704b89409016b40bc74, type: 3}
+    LargeIcon: {fileID: 2800000, guid: fac7470563f79024ebc244b39080448d, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Src/AiukUnity/UITemplate/Component
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 483d693b3f9d5704b89409016b40bc74, type: 3}
+    LargeIcon: {fileID: 2800000, guid: fac7470563f79024ebc244b39080448d, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Src/AiukTest/Runtime/UIControl
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Asset
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 97efd597cd18c564aadb45280476b23a, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 650a564eae901434e86dcb456fcc046a, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Asset/Sprite
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 27bb0c12d809b1e4fb2851723d50cde6, type: 3}
+    LargeIcon: {fileID: 2800000, guid: f61940b61bdca1843bed2dbc93de9038, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Extensions/UnityPlugin/Runtime/LINQtoGameObject
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Extensions/UnityPlugin/Runtime/EModules
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Extensions/UnityPlugin/Runtime/TextMesh Pro
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Extensions/UnityPlugin/Runtime/Unity-Logs-Viewer
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk/Extensions/UnityPlugin
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/_IukerTech/Aiuk
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: b8e8a328d6527a14783473666c1f8a08, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 010e6d817952d434197d318f48b2f16a, type: 3}
+  - Type: 1
+    Key: Assets/_IukerTech/Aiuk/Asset
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 97efd597cd18c564aadb45280476b23a, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 650a564eae901434e86dcb456fcc046a, type: 3}
+  - Type: 1
+    Key: Assets/_IukerTech/Aiuk/Example
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 40ff06f7c381dcf4391ca8342d04260c, type: 3}
+    LargeIcon: {fileID: 2800000, guid: f9d86cd8e960f584a9aa5a8ee61c4115, type: 3}
+  - Type: 1
+    Key: Assets/_IukerTech/Aiuk/Src
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/Src
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/Example
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 483d693b3f9d5704b89409016b40bc74, type: 3}
+    LargeIcon: {fileID: 2800000, guid: fac7470563f79024ebc244b39080448d, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/Asset
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 97efd597cd18c564aadb45280476b23a, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 650a564eae901434e86dcb456fcc046a, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/Test
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: b8e8a328d6527a14783473666c1f8a08, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 010e6d817952d434197d318f48b2f16a, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/Extensions/UnityPlugin
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/Extensions/NativePlugin
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/Src/Aiuk.Common
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/Src/Aiuk.Unity.Run
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/Src/UGUI
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/Src/Aiuk.Unity.Editor
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/Src/Aiuk.Unity.Common
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/AssistExtension
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 0a498e8f7fbcbef4db91d2d411e3f70f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: b88339035f924f94eab1e64bac79149f, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/RequiredExtensions
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 0a498e8f7fbcbef4db91d2d411e3f70f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: b88339035f924f94eab1e64bac79149f, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/Example/WholeProject
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: e4d497fd8f72b5241b762a7ed649ee83, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 0532ea3a1890c8946b6d842beeab51b8, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/Example/Scene
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 191188601401d7f4ca9105e13b350e00, type: 3}
+    LargeIcon: {fileID: 2800000, guid: b5aa5103c69828e42a9ff77db820f2a6, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/RequiredExtensions/UnityPlugin
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/RequiredExtensions/NativePlugin
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/AssistExtension/NativePlugin
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/AssistExtension/UnityPlugin
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/Doc
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 163b4b589845fee47ac105cdfb911b77, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 87a78956e37a460439f1871712ce87fc, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/Src/AiukUnityRun
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/Src/AiukUnityCommon
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/Src/AiukUnityEditor
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/RequiredExtensions/NativeExtension
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: 8f45cff1df9688244b1fa6e2da91e05f, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 15c3471930a7ff44aa9a30bc21a5ea06, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/RequiredExtensions/UnityExtension
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
+  - Type: 1
+    Key: Assets/Aiuk.UnityKit/Src/Runtime
+    IsRecursive: 0
+    SmallIcon: {fileID: 2800000, guid: ed89c5b2588683046989a2a138f3b343, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 9fca1a811da70484494d9e10d46e0636, type: 3}
