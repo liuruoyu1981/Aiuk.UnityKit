@@ -22,8 +22,8 @@ namespace DeadMosquito.Revealer
         private static Texture2D _lightSkinTex;
         private static Texture2D _lightRefreshTex;
         private static readonly float IconSize = EditorGUIUtility.singleLineHeight;
-        private static List<IAiukEditorAssetsFuction> AssetsFunctions
-        = new List<IAiukEditorAssetsFuction>();
+        private static readonly Dictionary<string, IAiukEditorAssetsFuction> AssetsFunctions
+        = new Dictionary<string, IAiukEditorAssetsFuction>();
 
         private const int Offset = 1;
 
@@ -32,13 +32,19 @@ namespace DeadMosquito.Revealer
             var functionTypes =
                 AiukReflectUtility.GetTypeList<IAiukEditorAssetsFuction>
                     (false, false, AiukUnityUtility.AssemblyCSharpEditor);
+            var tempFunctions = new List<IAiukEditorAssetsFuction>();
+
             foreach (var functionType in functionTypes)
             {
                 var function = Activator.CreateInstance(functionType) as IAiukEditorAssetsFuction;
-                AssetsFunctions.Add(function);
+                tempFunctions.Add(function);
             }
 
-            AssetsFunctions = AssetsFunctions.OrderBy(f => f.MenuTitle).ToList();
+            tempFunctions = tempFunctions.OrderBy(f => f.MenuTitle).ToList();
+            foreach (var assetsFuction in tempFunctions)
+            {
+                AssetsFunctions.Add(assetsFuction.MenuTitle, assetsFuction);
+            }
         }
 
         static AiukAssetsExtension()
@@ -101,21 +107,16 @@ namespace DeadMosquito.Revealer
             if (!path.EndsWith("Aiuk.UnityKit")) return;
 
             GUI.DrawTexture(iconRect, _lightRefreshTex);
-            if (GUI.Button(iconRect, GUIContent.none, GUIStyle.none))
-            {
-                var menu = new GenericMenu();
+            if (!GUI.Button(iconRect, GUIContent.none, GUIStyle.none)) return;
 
-                foreach (var assetsFuction in AssetsFunctions)
-                {
-                    menu.AddItem(new GUIContent(assetsFuction.MenuTitle), false, Callback, "random");
-                }
-//                menu.AddItem(new GUIContent("快捷/打开沙盒"), false, Callback, "item 1");
-//                menu.AddItem(new GUIContent("MenuItem2"), false, Callback, "item 2");
-//                menu.AddItem(new GUIContent("MenuItem2"), false, Callback, "item 2");
-                menu.AddSeparator("");
-                menu.AddItem(new GUIContent("SubMenu/MenuItem3"), false, Callback, "item 3");
-                menu.ShowAsContext();
+            var menu = new GenericMenu();
+
+            foreach (var kv in AssetsFunctions)
+            {
+                menu.AddItem(new GUIContent(kv.Value.MenuTitle), false, Callback,
+                    kv.Value.MenuTitle);
             }
+            menu.ShowAsContext();
         }
 
         private static void AddRefresh2Icon(string guid, Rect rect)
@@ -134,7 +135,9 @@ namespace DeadMosquito.Revealer
 
         private static void Callback(object obj)
         {
-            Debug.Log("Selected: " + obj);
+            var title = (string)obj;
+            var function = AssetsFunctions[title];
+            function.Execute();
         }
 
         private static Texture2D GetTex()

@@ -6,6 +6,7 @@
 
 #endregion
 
+using System.Diagnostics;
 using UnityEngine;
 
 namespace AiukUnityEditor
@@ -14,7 +15,7 @@ namespace AiukUnityEditor
     {
         public void Execute(object data = null)
         {
-            Debug.Log("打开沙盒");
+            Process.Start(Application.persistentDataPath);
         }
 
         public string MenuTitle
