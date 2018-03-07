@@ -1,6 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEditor;
 using System.Linq;
+using Aiuk.Common.Utility;
+using AiukUnityEditor;
+using AiukUnityRuntime;
 
 namespace DeadMosquito.Revealer
 {
@@ -16,12 +21,29 @@ namespace DeadMosquito.Revealer
         private static Texture2D _darkSkinTex;
         private static Texture2D _lightSkinTex;
         private static Texture2D _lightRefreshTex;
-        private static float IconSize = EditorGUIUtility.singleLineHeight;
+        private static readonly float IconSize = EditorGUIUtility.singleLineHeight;
+        private static List<IAiukEditorAssetsFuction> AssetsFunctions
+        = new List<IAiukEditorAssetsFuction>();
 
         private const int Offset = 1;
 
+        private static void InitAssetsFunction()
+        {
+            var functionTypes =
+                AiukReflectUtility.GetTypeList<IAiukEditorAssetsFuction>
+                    (false, false, AiukUnityUtility.AssemblyCSharpEditor);
+            foreach (var functionType in functionTypes)
+            {
+                var function = Activator.CreateInstance(functionType) as IAiukEditorAssetsFuction;
+                AssetsFunctions.Add(function);
+            }
+
+            AssetsFunctions = AssetsFunctions.OrderBy(f => f.MenuTitle).ToList();
+        }
+
         static AiukAssetsExtension()
         {
+            InitAssetsFunction();
             LoadTextures();
 
             EditorApplication.projectWindowItemOnGUI += HandleProjectWindowItemOnGUI;
@@ -40,6 +62,7 @@ namespace DeadMosquito.Revealer
         private static void HandleProjectWindowItemOnGUI(string guid, Rect rect)
         {
             AddRefreshIcon(guid, rect);
+            AddRefresh2Icon(guid, rect);
             AddOpenFolder(guid, rect);
             EditorApplication.RepaintProjectWindow();
         }
@@ -72,7 +95,7 @@ namespace DeadMosquito.Revealer
         private static void AddRefreshIcon(string guid, Rect rect)
         {
             var path = AssetDatabase.GUIDToAssetPath(guid);
-            var iconRect = new Rect(rect.width + rect.x - IconSize - 220, rect.y,
+            var iconRect = new Rect(rect.width + rect.x - IconSize - 225, rect.y,
                 IconSize - Offset, IconSize - Offset);
 
             if (!path.EndsWith("Aiuk.UnityKit")) return;
@@ -80,8 +103,38 @@ namespace DeadMosquito.Revealer
             GUI.DrawTexture(iconRect, _lightRefreshTex);
             if (GUI.Button(iconRect, GUIContent.none, GUIStyle.none))
             {
-                Debug.Log("Refresh");
+                var menu = new GenericMenu();
+
+                foreach (var assetsFuction in AssetsFunctions)
+                {
+                    menu.AddItem(new GUIContent(assetsFuction.MenuTitle), false, Callback, "random");
+                }
+//                menu.AddItem(new GUIContent("快捷/打开沙盒"), false, Callback, "item 1");
+//                menu.AddItem(new GUIContent("MenuItem2"), false, Callback, "item 2");
+//                menu.AddItem(new GUIContent("MenuItem2"), false, Callback, "item 2");
+                menu.AddSeparator("");
+                menu.AddItem(new GUIContent("SubMenu/MenuItem3"), false, Callback, "item 3");
+                menu.ShowAsContext();
             }
+        }
+
+        private static void AddRefresh2Icon(string guid, Rect rect)
+        {
+            var path = AssetDatabase.GUIDToAssetPath(guid);
+            var iconRect = new Rect(rect.width + rect.x - IconSize - 208, rect.y,
+                IconSize - Offset, IconSize - Offset);
+
+            if (!path.EndsWith("Aiuk.UnityKit")) return;
+
+            GUI.DrawTexture(iconRect, _lightRefreshTex);
+            if (GUI.Button(iconRect, GUIContent.none, GUIStyle.none))
+            {
+            }
+        }
+
+        private static void Callback(object obj)
+        {
+            Debug.Log("Selected: " + obj);
         }
 
         private static Texture2D GetTex()
@@ -98,5 +151,6 @@ namespace DeadMosquito.Revealer
         {
             return Selection.assetGUIDs.Any(guid.Contains);
         }
+
     }
 }

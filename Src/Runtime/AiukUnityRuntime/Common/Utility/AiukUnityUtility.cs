@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.IO;
+using System.Reflection;
+using UnityEngine;
 
 namespace AiukUnityRuntime
 {
@@ -49,6 +51,37 @@ namespace AiukUnityRuntime
                 }
 
                 return false;
+            }
+        }
+
+        /// <summary>
+        /// 当前项目程序集文件路径
+        /// </summary>
+        public static string AssemblyCSharpPath
+        {
+            get
+            {
+                return Directory.GetParent(Application.dataPath) +
+                       "/Library/ScriptAssemblies/Assembly-CSharp.dll";
+            }
+        }
+
+        public static Assembly AssemblyCSharp
+        {
+            get
+            {
+                var asm = Assembly.LoadFile(AssemblyCSharpPath);
+                return asm;
+            }
+        }
+
+        public static Assembly AssemblyCSharpEditor
+        {
+            get
+            {
+                var asm = Assembly.LoadFile(Directory.GetParent(Application.dataPath) +
+                                            "/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll");
+                return asm;
             }
         }
 

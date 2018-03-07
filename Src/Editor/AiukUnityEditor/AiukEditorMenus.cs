@@ -21,42 +21,45 @@ namespace AiukUnityEditor
 
         #endregion
 
-        #region 快捷
+        //        #region 快捷
 
-        [MenuItem(MENU_BASE + "快捷/打开沙盒目录")]
-        private static void OpenSandbox()
-        {
-            Process.Start(Application.persistentDataPath);
-        }
+        [MenuItem(MENU_BASE + "Apply", false, 0)]
+        private static void A() { }
 
-        [MenuItem(MENU_BASE + "快捷/清空沙盒目录")]
-        private static void DeleteSandbox()
-        {
-            AiukIOUtility.DeleteDirectory(Application.persistentDataPath);
-            EditorUtility.DisplayDialog("清空成功", "沙盒目录已成功清空", "确定");
-        }
+        //        [MenuItem(MENU_BASE + "快捷/打开沙盒目录", false, 1)]
+        //        private static void OpenSandbox()
+        //        {
+        //            Process.Start(Application.persistentDataPath);
+        //        }
 
-        #endregion
+        //        [MenuItem(MENU_BASE + "快捷/清空沙盒目录")]
+        //        private static void DeleteSandbox()
+        //        {
+        //            AiukIOUtility.DeleteDirectory(Application.persistentDataPath);
+        //            EditorUtility.DisplayDialog("清空成功", "沙盒目录已成功清空", "确定");
+        //        }
 
-        #region 脚手架窗口
+        //        #endregion
 
-#if AIUK_LANGUAGE_CHINESE
-        [MenuItem(MENU_BASE + "应用/脚手架")]
-#endif
-        public static void ShowScaffoldWindow()
-        {
-            AiukScaffoldWindow.ShowWindow();
-        }
+        //        #region 脚手架窗口
 
-        #endregion
+        //#if AIUK_LANGUAGE_CHINESE
+        //        [MenuItem(MENU_BASE + "应用/脚手架")]
+        //#endif
+        //        public static void ShowScaffoldWindow()
+        //        {
+        //            AiukScaffoldWindow.ShowWindow();
+        //        }
 
-        #region Excel
+        //        #endregion
 
-        
+        //        #region Excel
 
 
 
-        #endregion
+
+
+        //        #endregion
 
 
     }
