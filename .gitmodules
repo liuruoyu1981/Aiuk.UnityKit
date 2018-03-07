@@ -1,0 +1,3 @@
+[submodule "Src/Runtime/Aiuk.Common"]
+	path = Src/Runtime/Aiuk.Common
+	url = https://github.com/liuruoyu1981/Aiuk.Common.git
