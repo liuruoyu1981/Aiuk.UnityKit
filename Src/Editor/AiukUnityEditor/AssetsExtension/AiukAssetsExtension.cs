@@ -22,6 +22,7 @@ namespace DeadMosquito.Revealer
         private static Texture2D _lightSkinTex;
         private static Texture2D _lightRefreshTex;
         private static Texture2D _lightMenuTex;
+        private static Texture2D _lightAppTex;
         private static readonly float IconSize = EditorGUIUtility.singleLineHeight;
         private static readonly Dictionary<string, IAiukEditorAssetsFuction> AssetsFunctions
         = new Dictionary<string, IAiukEditorAssetsFuction>();
@@ -59,19 +60,23 @@ namespace DeadMosquito.Revealer
         private static void LoadTextures()
         {
             _darkSkinTex = AssetDatabase.LoadAssetAtPath<Texture2D>
-                ("Assets/Aiuk.UnityKit/Src/Editor/AiukUnityEditor/AssetsExtension/Asset/reveal-light.png");
+                  ("Assets/Aiuk.UnityKit/Src/Editor/AiukUnityEditor/AssetsExtension/Asset/reveal-light.png");
             _lightSkinTex = AssetDatabase.LoadAssetAtPath<Texture2D>
-                ("Assets/Aiuk.UnityKit/Src/Editor/AiukUnityEditor/AssetsExtension/Asset/reveal-dark.png");
+                  ("Assets/Aiuk.UnityKit/Src/Editor/AiukUnityEditor/AssetsExtension/Asset/reveal-dark.png");
             _lightRefreshTex = AssetDatabase.LoadAssetAtPath<Texture2D>
-                ("Assets/Aiuk.UnityKit/Src/Editor/AiukUnityEditor/AssetsExtension/Asset/refresh_light.png");
+                 ("Assets/Aiuk.UnityKit/Src/Editor/AiukUnityEditor/AssetsExtension/Asset/refresh_light.png");
             _lightMenuTex = AssetDatabase.LoadAssetAtPath<Texture2D>
-           ("Assets/Aiuk.UnityKit/Src/Editor/AiukUnityEditor/AssetsExtension/Asset/menu_light.png");
+             ("Assets/Aiuk.UnityKit/Src/Editor/AiukUnityEditor/AssetsExtension/Asset/menu_light.png");
+            _lightAppTex = AssetDatabase.LoadAssetAtPath<Texture2D>
+                ("Assets/Aiuk.UnityKit/Src/Editor/AiukUnityEditor/AssetsExtension/Asset/app_light.png");
         }
 
         private static void HandleProjectWindowItemOnGUI(string guid, Rect rect)
         {
-            AddRefreshIcon(guid, rect);
-            AddMenuIcon(guid, rect);
+            var path = AssetDatabase.GUIDToAssetPath(guid);
+            AddRefreshIcon(path, rect);
+            AddMenuIcon(path, rect);
+            AddAppIcon(path, rect);
             AddOpenFolder(guid, rect);
             EditorApplication.RepaintProjectWindow();
         }
@@ -101,9 +106,9 @@ namespace DeadMosquito.Revealer
             }
         }
 
-        private static void AddRefreshIcon(string guid, Rect rect)
+        private static void AddRefreshIcon(string path, Rect rect)
         {
-            var path = AssetDatabase.GUIDToAssetPath(guid);
+            //var path = AssetDatabase.GUIDToAssetPath(guid);
             var iconRect = new Rect(rect.width + rect.x - IconSize - 31, rect.y,
                 IconSize - Offset, IconSize - Offset);
 
@@ -114,16 +119,16 @@ namespace DeadMosquito.Revealer
             if (!GUI.Button(iconRect, content, GUIStyle.none)) return;
         }
 
-        private static void AddMenuIcon(string guid, Rect rect)
+        private static void AddMenuIcon(string path, Rect rect)
         {
-            var path = AssetDatabase.GUIDToAssetPath(guid);
+            //var path = AssetDatabase.GUIDToAssetPath(guid);
             var iconRect = new Rect(rect.width + rect.x - IconSize - 15, rect.y,
                 IconSize - Offset, IconSize - Offset);
 
             if (!path.EndsWith("Aiuk.UnityKit")) return;
 
             //GUI.DrawTexture(iconRect, _lightMenuTex);
-            var content = new GUIContent(_lightMenuTex, "呼出所有菜单");
+            var content = new GUIContent(_lightMenuTex, "呼出框架菜单");
             if (GUI.Button(iconRect, content, GUIStyle.none))
             {
                 var menu = new GenericMenu();
@@ -134,6 +139,18 @@ namespace DeadMosquito.Revealer
                         kv.Value.MenuTitle);
                 }
                 menu.ShowAsContext();
+            }
+        }
+
+        private static void AddAppIcon(string path, Rect rect)
+        {
+            var iconRect = new Rect(rect.width + rect.x - IconSize - 15, rect.y,
+                IconSize - Offset, IconSize - Offset);
+
+            if (!path.EndsWith("ThreeKK")) return;
+            var content = new GUIContent(_lightAppTex, "呼出应用菜单");
+            if (GUI.Button(iconRect, content, GUIStyle.none))
+            {
             }
         }
 
