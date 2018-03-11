@@ -9,19 +9,19 @@
 namespace AiukUnityEditor
 {
     /// <summary>
-    /// Assets´°¿ÚÔöÇ¿¹¦ÄÜ¡£
-    /// Ã¿¸öÊµÀý¶ÔÓ¦Ò»¸öAssets´°¿ÚÏÂµÄ±à¼­Æ÷²Ëµ¥¡£
+    /// Assetsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½Ü¡ï¿½
+    /// Ã¿ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½Ó¦Ò»ï¿½ï¿½Assetsï¿½ï¿½ï¿½ï¿½ï¿½ÂµÄ±à¼­ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½
     /// </summary>
     public interface IAiukEditorAssetsFuction
     {
         /// <summary>
-        /// Ö´ÐÐ¹¦ÄÜ¡£
+        /// Ö´ï¿½Ð¹ï¿½ï¿½Ü¡ï¿½
         /// </summary>
         /// <param name="data"></param>
         void Execute(object data = null);
 
         /// <summary>
-        /// ¹¦ÄÜÏîµÄ²Ëµ¥ÎÄ×Ö¡£
+        /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä²Ëµï¿½ï¿½ï¿½ï¿½Ö¡ï¿½
         /// </summary>
         string MenuTitle { get; }
     }

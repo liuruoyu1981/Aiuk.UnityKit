@@ -54,7 +54,7 @@ namespace DeadMosquito.Revealer
             InitAssetsFunction();
             LoadTextures();
 
-            EditorApplication.projectWindowItemOnGUI += HandleProjectWindowItemOnGUI;
+            EditorApplication.projectWindowItemOnGUI += HandleProjectWindowItemOnGui;
         }
 
         private static void LoadTextures()
@@ -71,7 +71,7 @@ namespace DeadMosquito.Revealer
                 ("Assets/Aiuk.UnityKit/Src/Editor/AiukUnityEditor/AssetsExtension/Asset/app_light.png");
         }
 
-        private static void HandleProjectWindowItemOnGUI(string guid, Rect rect)
+        private static void HandleProjectWindowItemOnGui(string guid, Rect rect)
         {
             var path = AssetDatabase.GUIDToAssetPath(guid);
             AddRefreshIcon(path, rect);
@@ -98,7 +98,7 @@ namespace DeadMosquito.Revealer
                 iconSize - Offset, iconSize - Offset);
 
             GUI.DrawTexture(iconRect, GetTex());
-
+            
             var path = AssetDatabase.GUIDToAssetPath(guid);
             if (GUI.Button(iconRect, GUIContent.none, GUIStyle.none))
             {
@@ -151,6 +151,7 @@ namespace DeadMosquito.Revealer
             var content = new GUIContent(_lightAppTex, "呼出应用菜单");
             if (GUI.Button(iconRect, content, GUIStyle.none))
             {
+                Debug.Log("呼出应用菜单");
             }
         }
 

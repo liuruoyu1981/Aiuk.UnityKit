@@ -15,6 +15,13 @@ namespace AiukUnityRuntime
         /// </summary>
         public string Name;
 
+        public string RootDir;
+
+        /// <summary>
+        /// 应用的组织或公司标识。
+        /// </summary>
+        public string OrganizationName;
+
         /// <summary>
         /// 应用模块列表。
         /// </summary>
@@ -35,11 +42,17 @@ namespace AiukUnityRuntime
             }
         }
 
-        public AiukAppSetting(string name)
+        public AiukAppSetting
+        (
+            string organizationName,
+            string appName,
+            string rootDir)
         {
-            Name = name;
+            OrganizationName = organizationName;
+            Name = appName;
+            RootDir = rootDir;
 
-            var shareModule = new AiukAppModuleSetting(name, "Share");
+            var shareModule = new AiukAppModuleSetting(this, "Share");
             AddModule(shareModule);
         }
 
@@ -64,6 +77,20 @@ namespace AiukUnityRuntime
 
             AppModules.Add(module);
             CurrentModuleName = module.Name;
+        }
+
+        public void AddModule(string moduleName)
+        {
+            if (IsExist(moduleName))
+            {
+                AiukDebugUtility.LogError(
+                    string.Format("目标模块{0}已存在，添加失败！", moduleName));
+                return;
+            }
+            
+            var module = new AiukAppModuleSetting(this,moduleName);
+            AppModules.Add(module);
+            CurrentModuleName = moduleName;
         }
     }
 }

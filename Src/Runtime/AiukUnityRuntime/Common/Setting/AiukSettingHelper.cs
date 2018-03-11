@@ -29,15 +29,18 @@
         (
             string organizationName,
             string newAppName,
-            string newModuleName
+            string newModuleName,
+            string rootDir
         )
         {
-            var appSetting = new AiukAppSetting(newAppName);
-            var appModule = new AiukAppModuleSetting(newAppName, newModuleName);
+            var appSetting = new AiukAppSetting(organizationName, newAppName, rootDir);
+            var appModule = new AiukAppModuleSetting(appSetting, newModuleName);
             appSetting.AddModule(appModule);
+            //  添加各应用模块共享的Share模块。
+            var shareModule = new AiukAppModuleSetting(appSetting, "Share");
+            appSetting.AddModule(shareModule);
             var appsSetting = new AiukAppsSetting();
         }
-
     }
 }
 

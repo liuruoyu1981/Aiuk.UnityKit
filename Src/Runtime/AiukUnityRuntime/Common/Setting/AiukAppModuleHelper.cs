@@ -25,7 +25,7 @@ namespace AiukUnityRuntime
         {
             get
             {
-                var path = m_AppModule.RootDir + "Cs/";
+                var path = Application.dataPath + "/" + m_AppModule.RootDir + "Cs/";
                 return path;
             }
         }
@@ -123,7 +123,7 @@ namespace AiukUnityRuntime
         {
             get
             {
-                var path = m_AppModule.RootDir + "AssetDatabase/";
+                var path = Application.dataPath + "/" + m_AppModule.RootDir + "AssetDatabase/";
                 return path;
             }
         }
@@ -218,7 +218,6 @@ namespace AiukUnityRuntime
             }
         }
 
-
         #endregion
 
         #region OriginalAsset
@@ -227,7 +226,7 @@ namespace AiukUnityRuntime
         {
             get
             {
-                var path = m_AppModule.RootDir + "OriginalAsset/";
+                var path = Application.dataPath + "/" + m_AppModule.RootDir + "OriginalAsset/";
                 return path;
             }
         }
@@ -290,9 +289,9 @@ namespace AiukUnityRuntime
             get
             {
                 var path = string.Format("{0}/AiukHttp/{1}/{2}/",
-                                         Application.dataPath,
-                                         m_AppModule.AppName,
-                                         m_AppModule.Token);
+                    Application.dataPath,
+                    m_AppModule.AppName,
+                    m_AppModule.Token);
 
                 return path;
             }
@@ -303,7 +302,7 @@ namespace AiukUnityRuntime
             get
             {
                 var path = string.Format("{0}AssetBundle/{1}_Main/",
-                                         LocalHttpRootDir, m_AppModule.Token);
+                    LocalHttpRootDir, m_AppModule.Token);
                 return path;
             }
         }
@@ -313,13 +312,12 @@ namespace AiukUnityRuntime
             get
             {
                 var path = Application.persistentDataPath +
-                                      string.Format("/{0}/{1}/", m_AppModule.AppName,
-                                                    m_AppModule.Token);
+                           string.Format("/{0}/{1}/", m_AppModule.AppName,
+                               m_AppModule.Token);
 
                 return path;
             }
         }
-
 
         #endregion
 
@@ -331,7 +329,7 @@ namespace AiukUnityRuntime
         /// 应用模块AssetBundleManifest映射字典。
         /// </summary>
         private static readonly Dictionary<string, AssetBundleManifest> ManiFestMap
-        = new Dictionary<string, AssetBundleManifest>();
+            = new Dictionary<string, AssetBundleManifest>();
 
         public static AssetBundleManifest GetMainfest(AiukAppModuleSetting module)
         {
@@ -346,17 +344,16 @@ namespace AiukUnityRuntime
             if (AiukUnityUtility.IsEditorMode)
             {
                 path = helper.AssetBundleMainDir +
-                             string.Format("{0}_Main", module.Token);
+                       string.Format("{0}_Main", module.Token);
             }
 
             if (AiukUnityUtility.IsPlayer)
             {
                 path = helper.SandboxDir + string.Format("AssetBundle/{0}_Main/",
-                                                         module.Token);
+                           module.Token);
             }
 
-            var manifest = AssetBundle.LoadFromFile(path).
-                                      LoadAsset("AssetBundleManifest") as AssetBundleManifest;
+            var manifest = AssetBundle.LoadFromFile(path).LoadAsset("AssetBundleManifest") as AssetBundleManifest;
             ManiFestMap.Add(module.Token, manifest);
             return manifest;
         }
@@ -364,5 +361,3 @@ namespace AiukUnityRuntime
         #endregion
     }
 }
-
-

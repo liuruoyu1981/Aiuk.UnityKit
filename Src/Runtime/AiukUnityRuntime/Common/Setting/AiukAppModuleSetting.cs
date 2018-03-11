@@ -40,7 +40,7 @@ namespace AiukUnityRuntime
         }
 
         /// <summary>
-        /// 模块的根目录。
+        /// 模块的根目录（相对目录）。
         /// </summary>
         public string RootDir;
 
@@ -51,12 +51,13 @@ namespace AiukUnityRuntime
 
         public AiukAppModuleSetting
         (
-            string appName,
+            AiukAppSetting appSetting,
             string moduleName
         )
         {
-            AppName = appName;
+            AppName = appSetting.Name;
             Name = moduleName;
+            RootDir = appSetting.RootDir + Name + "/";
 
             //  初始化默认的资源加载策略。
             InitDefaultAssetSetting();

@@ -26,6 +26,13 @@ namespace AiukUnityEditor
         /// </summary>
         private string[] m_AppArray = new string[0];
 
+        /// <summary>
+        /// 应用的根路径。
+        /// </summary>
+        private string m_AppRootDir;
+
+        private string m_OrganizationName;
+
         private string CurrentAppName
         {
             get
@@ -112,8 +119,7 @@ namespace AiukUnityEditor
 
             _Window = GetWindow<AiukScaffoldWindow>();
             _Window.titleContent = new GUIContent("应用脚手架");
-            _Window.minSize = new Vector2(500, 500);
-            //_Window.maxSize = new Vector2(300, 500);
+            _Window.minSize = new Vector2(600, 500);
             _Window.InitContext();
             _Window.InitStyle();
         }
@@ -124,6 +130,8 @@ namespace AiukUnityEditor
         /// </summary>
         private void InitContext()
         {
+            m_AppRootDir = Application.dataPath + "/";
+
             //  初始化AppsSetting实例。
             m_AppsSetting = AiukAppsSetting.Instance;
             if (m_AppsSetting.AppSetings.Count == 0) return;
@@ -136,9 +144,11 @@ namespace AiukUnityEditor
 
             if (currentApp.AppModules.Count == 0) return;
 
+
             var currentModuleName = currentApp.CurrentModule.Name;
             m_ModuleArray = currentApp.AppModules.Select(m => m.Name).ToArray();
             m_AppModuleIndex = currentApp.AppModules.FindIndex(m => m.Name == currentModuleName);
+            AssetDatabase.Refresh();
         }
 
         #region 绘制左部
@@ -148,8 +158,8 @@ namespace AiukUnityEditor
             using (new AiukHorizontalLayout())
             {
                 EditorGUILayout.LabelField("当前应用：", EditorStyles.boldLabel);
-                EditorGUILayout.LabelField(m_AppsSetting.CurrentApp == null ?
-                    "无当前应用" : m_AppsSetting.CurrentApp.Name, m_ContentStyle);
+                EditorGUILayout.LabelField(m_AppsSetting.CurrentApp == null ? "无当前应用" : m_AppsSetting.CurrentApp.Name,
+                    m_ContentStyle);
             }
         }
 
@@ -194,26 +204,70 @@ namespace AiukUnityEditor
             }
         }
 
+        private void DrawAppRootSelect()
+        {
+            using (new AiukHorizontalLayout())
+            {
+                GUILayout.Label("新应用根目录，默认为Assets下");
+                m_AppRootDir = GUILayout.TextField(m_AppRootDir);
+                if (GUILayout.Button("选择新应用根目录"))
+                {
+                    if (string.IsNullOrEmpty(m_NewAppName)
+                        || string.IsNullOrEmpty(m_NewModuleName))
+                    {
+                        EditorUtility.DisplayDialog("出错了"
+                            , "请先填写新建应用名或者新建应用的新建模块名", "知道了");
+                        return;
+                    }
+
+                    m_AppRootDir = EditorUtility.OpenFolderPanel(
+                        string.Format("选择新应用{0}的根目录", m_NewAppName),
+                        Application.dataPath, "");
+                    //  修正为相对于Assets的目录
+                    m_AppRootDir = m_AppRootDir.Replace(Application.dataPath + "/", "");
+                }
+            }
+        }
+
         private void AddApp()
         {
             if (AiukAppsSetting.IsExist(m_NewAppName))
             {
                 EditorUtility.DisplayDialog("应用已存在",
-                                            string.Format("所要添加的应用{0}已存在，添加应用失败！", m_NewAppName),
-                                            "知道了");
+                    string.Format("所要添加的应用{0}已存在，添加应用失败！", m_NewAppName),
+                    "知道了");
                 return;
             }
 
             if (string.IsNullOrEmpty(m_NewAppName))
             {
                 EditorUtility.DisplayDialog("应用名为空", "不能添加名字为空的应用，添加应用失败！",
-                                           "知道了");
+                    "知道了");
                 return;
             }
 
-            var newApp = new AiukAppSetting(m_NewAppName);
+            if (string.IsNullOrEmpty(m_OrganizationName))
+            {
+                EditorUtility.DisplayDialog("组织名为空", "请先填写应用的组织名，添加应用失败！",
+                    "知道了");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(m_NewModuleName))
+            {
+                EditorUtility.DisplayDialog("新应用模块名为空", "请先填写新应用模块名，添加应用失败！",
+                    "知道了");
+                return;
+            }
+
+            var newApp = new AiukAppSetting(m_OrganizationName, m_NewAppName,
+                m_AppRootDir + "/" + m_NewAppName + "/");
             AiukAppsSetting.AddApp(newApp);
+            AiukAppsSetting.Instance.CurrentApp.AddModule(m_NewModuleName);
             m_NewAppName = null;
+            m_OrganizationName = null;
+            m_AppRootDir = null;
+            m_NewModuleName = null;
             AiukAppsSetting.Save(AiukAppsSetting.Instance);
             AssetDatabase.Refresh();
             InitContext();
@@ -224,19 +278,19 @@ namespace AiukUnityEditor
             if (AiukAppsSetting.IsExist(m_NewModuleName))
             {
                 EditorUtility.DisplayDialog("模块已存在",
-                                            string.Format("所要添加的模块{0}已存在，添加模块失败！", m_NewModuleName),
-                                            "知道了");
+                    string.Format("所要添加的模块{0}已存在，添加模块失败！", m_NewModuleName),
+                    "知道了");
                 return;
             }
 
             if (string.IsNullOrEmpty(m_NewModuleName))
             {
                 EditorUtility.DisplayDialog("模块名为空", "不能添加名字为空的模块，添加模块失败！",
-                                           "知道了");
+                    "知道了");
                 return;
             }
 
-            var newModule = new AiukAppModuleSetting(m_AppsSetting.CurrentAppName, m_NewModuleName);
+            var newModule = new AiukAppModuleSetting(m_AppsSetting.CurrentApp, m_NewModuleName);
             m_AppsSetting.CurrentApp.AddModule(newModule);
             m_NewModuleName = null;
             AiukAppsSetting.Save(AiukAppsSetting.Instance);
@@ -258,11 +312,19 @@ namespace AiukUnityEditor
             }
         }
 
+        private void DrawAppOrganizationName()
+        {
+            using (new AiukHorizontalLayout())
+            {
+                GUILayout.Label("新应用组织名");
+                m_OrganizationName = GUILayout.TextField(m_OrganizationName);
+            }
+        }
+
         #region 功能按钮
 
         private void DeleteSelectApp()
         {
-
         }
 
         private void DrawFutureButtons()
@@ -272,9 +334,9 @@ namespace AiukUnityEditor
                 DrawUpadteSelectAppModule();
                 DrawDeleteAllAppsSetting();
             }
+
             using (new AiukHorizontalLayout())
             {
-
             }
         }
 
@@ -286,30 +348,27 @@ namespace AiukUnityEditor
                 InitContext();
                 AssetDatabase.Refresh();
                 EditorUtility.DisplayDialog("删除成功",
-                                            "沙盒及StreaAssets目录下的Apps设置文件已删除。",
-                                           "知道了");
+                    "沙盒及StreaAssets目录下的Apps设置文件已删除。",
+                    "知道了");
             }
         }
 
         /// <summary>
-        /// 更新所选择模块的文件夹结构。
+        /// 更新当前应用旗下所有模块的文件夹结构。
         /// </summary>
         private void DrawUpadteSelectAppModule()
         {
-            if (GUILayout.Button("更新所选择模块的文件夹结构"))
+            if (!GUILayout.Button("更新当前应用下所有模块的文件夹结构")) return;
+            var modules = AiukAppsSetting.Instance.CurrentApp.AppModules;
+            foreach (var module in modules)
             {
-                var rootPath = string.Format("{0}/AiukApps/{1}/{2}/", Application.dataPath,
-                                             CurrentAppName, CurrentModuleName);
-                if (string.IsNullOrEmpty(rootPath)) return;
-
-                AiukAppsSetting.Instance.CurrentApp.CurrentModule.RootDir = rootPath;
-                AiukAppsSetting.Save(AiukAppsSetting.Instance);
-
-                var builder = new AiukAppModuleBuilder(
-                    AiukAppsSetting.Instance.CurrentApp.CurrentModule);
+                var builder = new AiukAppModuleBuilder(module);
                 builder.BuildAppModule();
-                AssetDatabase.Refresh();
             }
+
+            AssetDatabase.Refresh();
+            EditorUtility.DisplayDialog("更新完毕", "当前应用的文件夹结构已更新完毕",
+                "知道了");
         }
 
         #endregion
@@ -321,6 +380,10 @@ namespace AiukUnityEditor
             DrawAppList();
             DrawAppModuleList();
             DrawDeveloperList();
+            EditorGUILayout.Space();
+            EditorGUILayout.Space();
+            DrawAppRootSelect();
+            DrawAppOrganizationName();
             DrawAddApp();
             DrawAddAppModule();
 
@@ -338,6 +401,5 @@ namespace AiukUnityEditor
         }
 
         #endregion
-
     }
 }

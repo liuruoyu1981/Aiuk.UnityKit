@@ -45,7 +45,6 @@ namespace AiukUnityEditor
             AiukIOUtility.TryCreateDirectory(m_PahtHelper.AssetDatabaseShader);
             AiukIOUtility.TryCreateDirectory(m_PahtHelper.AssetDatabaseView);
             AiukIOUtility.TryCreateDirectory(m_PahtHelper.AssetDatabaseTexture);
-
         }
 
         private void CreateOriginalAssetDir()
@@ -63,10 +62,9 @@ namespace AiukUnityEditor
             CrewateAssetDatabaseDir();
             CreateOriginalAssetDir();
 
-            EditorUtility.DisplayDialog("更新成功",
-                                        string.Format("应用模块{0}的文件结构及资源已更新。", m_AppModule.Name),
-                                         "知道了");
+            AiukDebugUtility.Log("更新成功",
+                string.Format("应用模块{0}的文件结构及资源已更新。", m_AppModule.Name),
+                "知道了");
         }
     }
 }
-
