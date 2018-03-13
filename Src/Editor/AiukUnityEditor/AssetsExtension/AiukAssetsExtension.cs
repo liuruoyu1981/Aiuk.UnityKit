@@ -23,6 +23,7 @@ namespace DeadMosquito.Revealer
         private static Texture2D _lightRefreshTex;
         private static Texture2D _lightMenuTex;
         private static Texture2D _lightAppTex;
+        private static Texture2D _create_script_icon;
         private static readonly float IconSize = EditorGUIUtility.singleLineHeight;
         private static readonly Dictionary<string, IAiukEditorAssetsFuction> AssetsFunctions
         = new Dictionary<string, IAiukEditorAssetsFuction>();
@@ -53,8 +54,7 @@ namespace DeadMosquito.Revealer
         {
             InitAssetsFunction();
             LoadTextures();
-
-            EditorApplication.projectWindowItemOnGUI += HandleProjectWindowItemOnGui;
+            EditorApplication.projectWindowItemOnGUI += HandleProjectWindowItemOnGUI;
         }
 
         private static void LoadTextures()
@@ -69,89 +69,92 @@ namespace DeadMosquito.Revealer
              ("Assets/Aiuk.UnityKit/Src/Editor/AiukUnityEditor/AssetsExtension/Asset/menu_light.png");
             _lightAppTex = AssetDatabase.LoadAssetAtPath<Texture2D>
                 ("Assets/Aiuk.UnityKit/Src/Editor/AiukUnityEditor/AssetsExtension/Asset/app_light.png");
+            _create_script_icon = AssetDatabase.LoadAssetAtPath<Texture2D>
+                ("Assets/Aiuk.UnityKit/Src/Editor/AiukUnityEditor/AssetsExtension/Asset/create_script_icon.png");
         }
 
-        private static void HandleProjectWindowItemOnGui(string guid, Rect rect)
+        private static void HandleProjectWindowItemOnGUI(string guid, Rect rect)
         {
             var path = AssetDatabase.GUIDToAssetPath(guid);
             AddRefreshIcon(path, rect);
             AddMenuIcon(path, rect);
             AddAppIcon(path, rect);
-            AddOpenFolder(guid, rect);
+            AddFixedIcons(guid, rect);
             EditorApplication.RepaintProjectWindow();
         }
 
-        private static void AddOpenFolder(string guid, Rect rect)
+        /// <summary>
+        /// 绘制固定的功能图标。
+        /// 1. 打开文件夹。
+        /// 2. 打开脚本创建窗口。
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <param name="rect"></param>
+        private static void AddFixedIcons(string guid, Rect rect)
         {
             var isHover = rect.Contains(Event.current.mousePosition) && RevealerEditorSettings.ShowOnHover;
             var isSelected = IsSelected(guid) && RevealerEditorSettings.ShowOnSelected;
 
             var isVisible = isHover || isSelected;
 
-            if (!isVisible)
-            {
-                return;
-            }
+            if (!isVisible) return;
 
-            var iconSize = EditorGUIUtility.singleLineHeight;
-            var iconRect = new Rect(rect.width + rect.x - iconSize - RevealerEditorSettings.OffsetInProjectView, rect.y,
-                iconSize - Offset, iconSize - Offset);
-
-            GUI.DrawTexture(iconRect, GetTex());
-            
+            var openFolderRect = new Rect(rect.width + rect.x - IconSize - RevealerEditorSettings.OffsetInProjectView, rect.y,
+                IconSize - Offset, IconSize - Offset);
+            GUI.DrawTexture(openFolderRect, GetOpenFolderTex());
             var path = AssetDatabase.GUIDToAssetPath(guid);
-            if (GUI.Button(iconRect, GUIContent.none, GUIStyle.none))
+            if (GUI.Button(openFolderRect, GUIContent.none, GUIStyle.none))
             {
                 EditorUtility.RevealInFinder(path);
             }
+
+            var scriptCreateRect = new Rect(rect.width + rect.x - IconSize - 15, rect.y,
+                IconSize - Offset, IconSize - Offset);
+            var content = new GUIContent(_create_script_icon, "呼出脚本创建窗口");
+            if (!GUI.Button(scriptCreateRect, content, GUIStyle.none)) return;
+            AiukAssetsFunctionUtility.ShowScriptCreateWindow();
         }
 
         private static void AddRefreshIcon(string path, Rect rect)
         {
-            //var path = AssetDatabase.GUIDToAssetPath(guid);
-            var iconRect = new Rect(rect.width + rect.x - IconSize - 31, rect.y,
+            var iconRect = new Rect(rect.width + rect.x - IconSize - 47, rect.y,
                 IconSize - Offset, IconSize - Offset);
 
             if (!path.EndsWith("Aiuk.UnityKit")) return;
 
-            //GUI.DrawTexture(iconRect, _lightRefreshTex);
             var content = new GUIContent(_lightRefreshTex, "调用所有重建任务");
             if (!GUI.Button(iconRect, content, GUIStyle.none)) return;
         }
 
         private static void AddMenuIcon(string path, Rect rect)
         {
-            //var path = AssetDatabase.GUIDToAssetPath(guid);
-            var iconRect = new Rect(rect.width + rect.x - IconSize - 15, rect.y,
+            var iconRect = new Rect(rect.width + rect.x - IconSize - 31, rect.y,
                 IconSize - Offset, IconSize - Offset);
 
             if (!path.EndsWith("Aiuk.UnityKit")) return;
 
-            //GUI.DrawTexture(iconRect, _lightMenuTex);
             var content = new GUIContent(_lightMenuTex, "呼出框架菜单");
-            if (GUI.Button(iconRect, content, GUIStyle.none))
-            {
-                var menu = new GenericMenu();
+            if (!GUI.Button(iconRect, content, GUIStyle.none)) return;
 
-                foreach (var kv in AssetsFunctions)
-                {
-                    menu.AddItem(new GUIContent(kv.Value.MenuTitle), false, Callback,
-                        kv.Value.MenuTitle);
-                }
-                menu.ShowAsContext();
+            var menu = new GenericMenu();
+
+            foreach (var kv in AssetsFunctions)
+            {
+                menu.AddItem(new GUIContent(kv.Value.MenuTitle), false, Callback,
+                    kv.Value.MenuTitle);
             }
+            menu.ShowAsContext();
         }
 
         private static void AddAppIcon(string path, Rect rect)
         {
-            var iconRect = new Rect(rect.width + rect.x - IconSize - 15, rect.y,
+            var iconRect = new Rect(rect.width + rect.x - IconSize - 31, rect.y,
                 IconSize - Offset, IconSize - Offset);
 
             if (!path.EndsWith("ThreeKK")) return;
             var content = new GUIContent(_lightAppTex, "呼出应用菜单");
             if (GUI.Button(iconRect, content, GUIStyle.none))
             {
-                Debug.Log("呼出应用菜单");
             }
         }
 
@@ -162,7 +165,7 @@ namespace DeadMosquito.Revealer
             function.Execute();
         }
 
-        private static Texture2D GetTex()
+        private static Texture2D GetOpenFolderTex()
         {
             if (_darkSkinTex == null || _lightSkinTex == null)
             {
